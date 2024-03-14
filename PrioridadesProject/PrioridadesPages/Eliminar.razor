@@ -51,20 +51,16 @@
     protected override async Task OnInitializedAsync()
     {
         // Obtener los detalles de la prioridad utilizando el PrioridadId
-        prioridad = await prioridadesService.FindByIdAsync(PrioridadId);
-
+        prioridad = await httpClient.GetFromJsonAsync<Prioridades>($"api/Pioridades/{PrioridadId}");
     }
 
     public Prioridades prioridad = new Prioridades();
     public string _mensaje = string.Empty;
     public async Task Eliminar1()
     {
-        var eliminado = await prioridadesService.Delete(prioridad.PrioridadId);
-        if (eliminado)
-        {
-            _mensaje = "Prioridad eliminada con exito.";
-
-        }
+        var eliminado = await httpClient.DeleteAsync($"api/Prioridades/{PrioridadId}");
+        _mensaje = "Prioridad eliminada Correctamente";
+        StateHasChanged();
 
     }
 }
