@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrioridadesProject", "PrioridadesProject.csproj", "{2F66F21F-F6AF-4520-8A18-24DD806420C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrioridadesProject", "PrioridadesProject.csproj", "{2F66F21F-F6AF-4520-8A18-24DD806420C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrioridadesProject.API", "..\PrioridadesProject.API\PrioridadesProject.API.csproj", "{A4E4810A-F4E1-43E2-8324-897F7856E282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrioridadesProject.API", "..\PrioridadesProject.API\PrioridadesProject.API.csproj", "{A4E4810A-F4E1-43E2-8324-897F7856E282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaPrioridades", "..\LibreriaPrioridades\LibreriaPrioridades.csproj", "{318628F6-FD26-47E9-838D-1BBEBD5261D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibreriaPrioridades", "..\LibreriaPrioridades\LibreriaPrioridades.csproj", "{318628F6-FD26-47E9-838D-1BBEBD5261D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
