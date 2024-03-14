@@ -1,0 +1,87 @@
+﻿@page "/prioridad/Editar/{PrioridadId:int}"
+@inject HttpClient httpClient
+
+<PageTitle>Prioridad</PageTitle>
+<EditForm Model="prioridad" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="card-header">
+                <h3>Editar Prioridad.</h3>
+            </div>
+            <div class=card-body>
+
+
+
+                @*Descripción*@
+                <div class="mb-3">
+                    <label class="form-label" for="Descripción">Descripción:</label>
+                    <InputText @bind-Value="prioridad.Descripción" class="form-control" />
+                    <ValidationMessage For="@(() => prioridad.Descripción)" />
+                </div>
+                <p class="text-danger">@_mensaje</p>
+
+                @*Dias compromiso*@
+                <div class="mb-3">
+                    <label class="form-label" for="SolicitadoPor">Dias compromiso:</label>
+                    <InputNumber @bind-Value="prioridad.DiasCompromiso" class="form-control" />
+                    <ValidationMessage For="@(() => prioridad.DiasCompromiso)" />
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <div class="btn">
+                    <a href="/ConsultaPrioridad" class="bi bi-arrow-return-left btn btn-outline-primary">Volver</a>
+                </div>
+
+                <div class="btn">
+                    <button type="submit" class="bi bi-floppy btn btn-outline-success">Guardar <i class="oi oi-document" /></button>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</EditForm>
+<p class="text-success">@_mensaje3</p>
+
+@code {
+    public Prioridades prioridad = new Prioridades();
+    public string _mensaje = string.Empty;
+    public string _mensaje3 = string.Empty;
+
+    [Parameter]
+    public int PrioridadId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Obtener los detalles de la prioridad utilizando el PrioridadId
+        prioridad = await httpClient.GetFromJsonAsync<Prioridades>($"api/Prioridades/{PrioridadId}");
+
+    }
+
+    public async Task Save()
+    {
+        var guardo = await httpClient.PutAsJsonAsync($"api/Prioridades/{PrioridadId}", prioridad);
+
+        if (!guardo.IsSuccessStatusCode)
+        {
+            return;
+        }
+        // if (guardo)
+        // {
+        //     Nuevo();
+        //     _mensaje3 = "Se ha guardado correctamente.";
+        // }
+        // else
+        //     _mensaje = "Ya existe una descripción igual.";
+    }
+
+    public void Nuevo()
+    {
+        prioridad = new Prioridades();
+        _mensaje = string.Empty;
+        _mensaje3 = string.Empty;
+    }
+
+
+}
