@@ -26,7 +26,12 @@ namespace PrioridadesProject.API
 				app.UseSwagger();
 				app.UseSwaggerUI();
 			}
-
+			app.UseCors(op =>
+			{
+				op.AllowAnyMethod();
+				op.AllowAnyHeader();
+				op.AllowAnyOrigin();
+			});
 			app.UseHttpsRedirection();
 
 			app.UseAuthorization();
