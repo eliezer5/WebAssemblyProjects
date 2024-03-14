@@ -27,6 +27,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        cliente = await httpClient.GetFromJsonAsync<Clientes>($"api/Vehiculos/{ClienteId}");
+        cliente = await httpClient.GetFromJsonAsync<Clientes>($"api/Clientes/{ClienteId}");
     }
 }

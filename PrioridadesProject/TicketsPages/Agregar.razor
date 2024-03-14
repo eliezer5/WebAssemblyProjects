@@ -108,7 +108,7 @@
     public string _mensaje = string.Empty;
     public string _mensaje3 = string.Empty;
 
-
+    
 
 
     public async Task Save()
@@ -120,13 +120,8 @@
             return;
 
         }
-        // if (guardo)
-        // {
-        //     Nuevo();
-        //     _mensaje3 = "Se ha guardado correctamente.";
-        // }
-        // else
-        //     _mensaje = "No existe Un ClienteId o sistemaId o prioridadId";
+         _mensaje3 = "Se ha guardado correctamente.";
+        
     }
 
     public void Nuevo()
@@ -143,10 +138,10 @@
 
     protected override async Task OnInitializedAsync()
     {
-       
         sistemas = await httpClient.GetFromJsonAsync<List<Sistemas>>("api/Sistemas");
         clientes = await httpClient.GetFromJsonAsync<List<Clientes>>("api/Clientes");
         prioridades = await httpClient.GetFromJsonAsync<List<Prioridades>>("api/Prioridades");
+        Nuevo();
     }
 
 }
